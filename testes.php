@@ -1,4 +1,5 @@
 <?php
+//mexido aqui
 	//comando para configurações do php
 //ini_set(varname, newvalue);
 $cor = '#000000';
