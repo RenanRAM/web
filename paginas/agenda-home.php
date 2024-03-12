@@ -53,11 +53,13 @@
 		</div><!--avisos-->
 		
 		<section class="lista">
+			<div class="msg-completa" title="Clique para fechar"></div>
 			<?php
+				$msg = 'mensagem muito longa que não cabe em uma só linha por isso estou usando esses 3 pontinhos para indicar que haverá uma continuação dessa mensagem que já está longa de mais e eu ainda estou escrevendo não sei porque';
 				for($i=0;$i<11;$i++){
 					echo <<<ELEMENTOS
 					<p cliente_id="$i" cliente_nome="Leitonia" cliente_hora="20:05" cliente_data="12/12/2024">
-					Leitônia | 12/12/2024 | 20:05 | Projeto de uma cozinha 
+					Leitônia | 12/12/2024 | 20:05 | <msglimit>$msg</msglimit> 
 					<strong class="botoes" aceitar>Aceitar</strong> <strong class="botoes">Recusar</strong>
 					</p>
 					ELEMENTOS;

@@ -7,6 +7,7 @@ let caixa_email = document.querySelector('div.email');
 let caixa_email_aberta = caixa_email.computedStyleMap().get('display').toString() == 'block';
 let email_atual_aceito = false;
 
+//pegar informações nos botões
 document.querySelectorAll('strong.botoes').forEach(ele=>{
 	ele.addEventListener('click', function(){
 		let pai = this.parentNode;
@@ -31,6 +32,18 @@ caixa_email.querySelector('div.enviar-email').addEventListener('click',()=>{
 	}else{
 		alert('Erro, caixa de email não está aberta');
 	}
+});
+
+//adicionar função aos elementos p da lista
+document.querySelectorAll('section.lista p').forEach(ele=>{
+	ele.addEventListener('click',function(){
+		exibirMsgCompleta(this);
+	});
+});
+
+//adicionar função a div que mostra a mensagem completa
+document.querySelector('section.lista div.msg-completa').addEventListener('click',function(){
+	this.attributeStyleMap.set('display','none');
 });
 
 function abrirCaixaEmail(aceitou,nome,data,hora,id){
@@ -92,6 +105,14 @@ function removerAnimado(id){
 	elemento.attributeStyleMap.set('border','0');
 	fecharCaixaEmail()
 	setTimeout(()=>{elemento.remove();},700);
+}
+
+function exibirMsgCompleta(elep){
+	let top = elep.offsetTop;
+	let caixa = document.querySelector('div.msg-completa');
+	caixa.textContent = elep.querySelector('msglimit').textContent;
+	caixa.attributeStyleMap.set('top',top+'px');
+	caixa.attributeStyleMap.set('display','block');
 }
 
 function enviar(dados,sucFunc = null,errFunc = null){

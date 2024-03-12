@@ -93,6 +93,7 @@ div.avisos{
 	box-shadow: 0 0 16px 8px #e77a7a inset;
 	padding: 16px;
 	background-color: #fff6e5;
+	flex-shrink: 0;
 }
 
 .avisos p.aviso{
@@ -122,6 +123,16 @@ section.lista p{
 	position: relative;
 	bottom: 0;
 	height: 31px;
+	cursor: pointer;
+}
+
+section.lista msglimit{
+	display: inline-block;
+	width: 45%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: bottom;
 }
 
 section.lista p .botoes{
@@ -146,6 +157,17 @@ section.lista strong:hover{
 
 section.lista p[cliente_id]{
 	transition: bottom 700ms cubic-bezier(.47,0,.92,0),height 450ms ease-in;
+}
+
+section.lista div.msg-completa{
+	position: absolute;
+	background-color: whitesmoke;
+	z-index: 1;
+	border: 2px solid #e77a7a;
+	width: 60%;
+	display: none;
+	padding: 3px;
+	cursor: pointer;
 }
 
 div.email{
