@@ -1,0 +1,7 @@
+
+ErrorDocument 404 /sitecleusa/erro.php
+
+
+#Options -Indexes
+
+

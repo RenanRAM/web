@@ -1,0 +1,242 @@
+*{
+	font-family: 'Zen Maru Gothic', serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+}
+
+p.vertical{
+	display: inline-block;
+	position: fixed;
+	writing-mode: vertical-lr;
+	text-orientation: upright;
+	letter-spacing: -1px;
+	font-size: 91px;
+	font-weight: bolder;
+	color: #ffc7c7;
+	user-select: none;
+	cursor: default;
+	top: 51px;
+	z-index: -1;
+}
+
+.direita{
+	right: 10px;
+}
+
+.esquerda{
+	left: 10px;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;;
+	flex-wrap: nowrap;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+header{
+	display: block;
+	width: 100%;
+	padding: 12px;
+	background-color: #ffc7c7;
+	text-align: center;
+	position: relative;
+	color: darkred;
+}
+
+p.titulo{
+	font-size: 24px;
+	font-weight: 500;
+	display: inline-block;
+}
+
+p.selecao{
+	right: 20px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	width: 20%;
+}
+
+div.container{
+	position: relative;
+	width: auto;
+	display: inline-flex;
+	height: auto;
+	flex-grow: 1;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: stretch;
+	overflow: hidden;
+}
+
+div.avisos{
+	position: relative;
+	width: 200px;
+	display: inline-block;
+	box-shadow: 0 0 16px 8px #e77a7a inset;
+	padding: 16px;
+	background-color: #fff6e5;
+}
+
+.avisos p.aviso{
+	text-align: center;
+	font-size: 19px;
+	color: darkred;
+	font-weight: 500;
+	border-bottom: 2px solid darkred;
+	margin-bottom: 6px;
+	animation: alertar 1500ms steps(1,end) infinite;
+}
+
+.avisos article p{
+	border-bottom: 1px solid #ffc7c7;
+}
+
+section.lista{
+	flex-grow: 1;
+	padding: 10px 50px;
+	overflow-y: auto;
+	background-color: #fff6e5;
+}
+
+section.lista p{
+	border-bottom: 1px solid lightgray;
+	line-height: 31px;
+	position: relative;
+	bottom: 0;
+	height: 31px;
+}
+
+section.lista p .botoes{
+	display: none;
+}
+
+section.lista p:hover{
+	background-color: #f1e6d0;
+}
+
+section.lista p:hover .botoes{
+	display: inline-block !important;
+}
+
+section.lista strong{
+	cursor: pointer;
+}
+
+section.lista strong:hover{
+	color: red !important;
+}
+
+section.lista p[cliente_id]{
+	transition: bottom 700ms cubic-bezier(.47,0,.92,0),height 450ms ease-in;
+}
+
+div.email{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translate(0,-50%);
+	z-index: 1;
+	border: 2px solid darkred;
+	background-color: ghostwhite;
+	display: none;
+}
+
+div.email h1{
+	font-size: 20px;
+	font-weight: 400;
+	display: block;
+	padding: 5px 8px;
+}
+
+div.email textarea{
+	width: 100%;
+	min-height: 300px;
+	display: block;
+	resize: none;
+	padding: 5px;
+}
+
+div.email div.enviar-email{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	background-color: lightgray;
+	cursor: pointer;
+	border: 2px solid lightgray;
+}
+
+/*
+div.email div.enviar-email i{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	display: block;
+	color: red;
+	font-size: 50px;
+}
+*/
+
+div.cancelar{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	background-color: lightgray;
+	cursor: pointer;
+	border: 2px solid lightgray;
+}
+
+div.email div.enviar-email:hover,
+div.email div.cancelar:hover{
+	border: 2px solid red;
+}
+
+div.email div.enviar-email::before{
+	position: absolute;
+	top: -27px;
+	content: 'Enviar';
+}
+
+div.email div.cancelar::before{
+	position: absolute;
+	top: -27px;
+	content: 'Cancelar';
+}
+
+@keyframes alertar{
+	60%{color:red}
+}
+
+@keyframes abrirCaixaEmail{
+	0%{right: -500px; display: block}
+	100%{right: 10px;}
+}
+
+@keyframes fecharCaixaEmail{
+	0%{right: 10px;}
+	100%{right: -500px; display: none;}	
+}

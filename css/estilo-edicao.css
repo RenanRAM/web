@@ -1,0 +1,347 @@
+*{
+	font-family: 'Zen Maru Gothic', serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+}
+
+header{
+	width: 100%;
+	padding: 12px 18px;
+	padding-top: 10px;
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+
+header a{
+	color:#3aafdf;
+	text-decoration: none;
+	margin: 0 3px;
+}
+
+div.categoria-container{
+	max-width: 700px;
+	margin: 0 auto;
+	display: grid;
+	grid-auto-rows: 50px;
+	grid-template-columns: 250px;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+}
+
+div.categoria-single i{
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+div.categoria-single{
+	display: block;
+	position: relative;
+	height: 70%;
+	width: 100%;
+	border: 2px solid #df3737;
+	font-size: 20px;
+	text-align: center;
+	background: #eee;
+}
+
+div.categoria-single textarea{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	resize: none;
+	border: none;
+	padding-left: 3px;
+	font-size: inherit;
+}
+
+div i.fa-check{
+	cursor: pointer;
+	color: green;
+	position: absolute;
+	display: inline-block;
+	left: 260px;
+	top: 6px;
+}
+
+div.categoria-adicionar{
+	display: block;
+	position: relative;
+	height: 70%;
+	width: 100%;
+	border: 2px dashed #df3737;
+	font-size: 20px;
+	text-align: center;
+	background: #e5e5e5;
+	cursor: pointer;
+}
+
+#adiciona{
+	display: none;
+}
+
+div.categoria-adicionar:hover{
+	color: #cf2727;
+}
+
+#salvar{
+	padding: 7px 34px;
+	cursor: pointer;
+	background: #df4747;
+	color: whitesmoke;
+	position: relative;
+}
+
+i.fa-times:hover{
+	color: #df3737;
+}
+
+#salvar:hover{
+	border: 2px solid greenyellow;
+	background: #df3737;
+}
+
+p.vertical{
+	display: inline-block;
+	position: fixed;
+	writing-mode: vertical-lr;
+	text-orientation: upright;
+	letter-spacing: -1px;
+	font-size: 91px;
+	font-weight: bolder;
+	color: #ffc7c7;
+	user-select: none;
+	cursor: default;
+	top: 51px;
+}
+
+.direita{
+	right: 10px;
+}
+
+.esquerda{
+	left: 10px;
+}
+
+div.login{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 2px solid #ff4d4d;
+	background: #ffc7c7;
+	padding: 15px;
+}
+
+div.login article h3{
+	color: #646464;
+	font-weight: 300;
+	font-size: 23px;
+	position: relative;
+	margin-bottom: 3px;
+}
+
+div.login form{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+div.login form input{
+	position: relative;
+	display: block;
+	border: none;
+	margin: 6px;
+	padding: 3px 5px;
+	transition: background-color 700ms;
+}
+
+div.login form input[type=submit]{
+	cursor: pointer;
+}
+
+div.login form input[type=submit]:hover{
+	background-color: #ff4d4d;
+}
+
+div.container-imgs{
+	width: 100%;
+	position: relative;
+	display: grid;
+	grid-auto-rows: 200px;
+	grid-template-columns: 280px 280px 280px 280px;
+	justify-content: center;
+	align-items: start;
+	justify-items: center;
+	grid-gap: 20px;
+}
+
+div.container-imgs.maior{
+	grid-template-columns: 330px 330px 330px;
+	grid-auto-rows: 250px;
+}
+
+div.container-imgs a{
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+}
+
+div.cat-imgs{
+	width: 100%;
+	height: 100%;
+	border: 2px solid #df3737;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+}
+
+div.cat-imgs:hover{
+	border-width: 3px;
+}
+
+div.cat-imgs.sele{
+	border: 3px dotted #ff2828;
+}
+
+div.cat-titulo{
+	font-weight: bold;
+	color: darkred;
+	text-align: center;
+	width: 100%;
+	padding: 2px 15px;
+	background-color: lightcoral;
+}
+
+div.cat-imgs:nth-of-type(1) div.img-fundo{
+	background-color: #ebebeb;
+}
+
+div.img-fundo{
+	flex-grow: 1;
+	background-color: lightgreen;
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+	object-fit: cover;
+	background-position: center;
+}
+
+div.img-fundo *{
+	color: #df3737;
+}
+
+a.sair{
+	font-size: 22px !important;
+	display: inline-block;
+	color: #3aafdf;
+}
+
+header.edicao p,
+header.edicao div.opcoes,
+header.edicao label{
+	position: relative;
+	display: inline-block;
+	color: #df3737;
+	padding: 5px;
+	border: 2px solid #df3737;
+	margin: 0 6px;
+	cursor: pointer;
+	width: 173px;
+	text-align: center;
+}
+
+button.tamanho{
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	display: inline-block;
+	background-color: #df3737;
+	color: whitesmoke;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	height: 30px;
+    width: 30px;
+    margin: 3px;
+    font-weight: bolder;
+}
+
+header.edicao p:hover,
+header.edicao label:hover{
+	border-width: 3px;
+}
+
+header.edicao div.opcoes div{
+	display: none;
+	position: absolute;
+	color: whitesmoke;
+	z-index: 1;
+	left: 0;
+	border: 2px solid #df3737;
+	width: 100%;
+	top: 100%;
+}
+
+header.edicao div.opcoes:hover div{
+	display: block;
+}
+
+header.edicao div.opcoes div p{
+	display: block;
+	position: relative;
+	color: whitesmoke;
+	padding: 2px 0;
+	margin: 0;
+	width: 100%;
+	background-color: #d79a9a;
+	border: 0;
+	cursor: pointer;
+}
+
+header.edicao div.opcoes div p:hover{
+	background-color: #df4747;
+}
+
+@media screen and (max-width: 1392px){
+	div.container-imgs{
+		grid-template-columns: 280px 280px 280px;
+	}
+}
+
+div.navegacao{
+	display: block;
+	position: fixed;
+	border: 2px solid #df4747;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: #ffc7c7db;
+	text-align: center;
+}
+
+div.navegacao h3,
+div.navegacao a{
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 18px;
+	width: auto;
+	display: inline-block;
+}
+
+div.navegacao a{
+	cursor: pointer;
+	color: #3aafdf;
+	margin: 1px;
+}
+
+div.navegacao a:hover{
+	font-weight: bolder;
+}
