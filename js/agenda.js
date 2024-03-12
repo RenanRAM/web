@@ -9,7 +9,8 @@ let email_atual_aceito = false;
 
 //pegar informações nos botões
 document.querySelectorAll('strong.botoes').forEach(ele=>{
-	ele.addEventListener('click', function(){
+	ele.addEventListener('click', function(evento){
+		evento.stopPropagation();
 		let pai = this.parentNode;
 		let cliente_id = pai.getAttribute('cliente_id');
 		let nome = pai.getAttribute('cliente_nome');
