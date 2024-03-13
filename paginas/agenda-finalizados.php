@@ -47,10 +47,10 @@
 			?>
 			<div class="paginacao">
 				<?php
-					for($i=1;$i<20;$i++){
-						$at = $i%2 == 0?'atual':'';
+					for($i=1;$i<50;$i++){
+						$at = $i == 27?'atual':'';
 						echo <<<ELEMENTOS
-						<p $at>$i</p>
+						<p pagina="$i" $at>$i</p>
 						ELEMENTOS;
 					}
 				?>
@@ -59,4 +59,5 @@
 	</div><!--container-->
 </body>
 <script src="<?php echo PATH; ?>js/agenda-exibirmsg.js"></script>
+<script src="<?php echo PATH; ?>js/paginador.js"></script>
 </html>

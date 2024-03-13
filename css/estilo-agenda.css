@@ -251,12 +251,12 @@ div.email div.cancelar::before{
 }
 
 div.paginacao{
-	width: 150px;
+	width: 170px;
 	border-bottom: 1px solid lightgray;
 	margin: 20px auto;
 	position: relative;
 	overflow-x: auto;
-	height: 52px;
+	height: 41px;
 	white-space: nowrap;
 	overflow-y: hidden;
 }
