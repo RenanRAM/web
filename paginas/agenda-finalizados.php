@@ -18,30 +18,11 @@
 </head>
 <body>
 	<header>
-		<p class="titulo">Agenda/Home</p>
+		<p class="titulo">Agenda/Finalizados</p>
 		<p class="selecao"><a href="<?php echo PATH."?agenda=pendentes" ?>">Aceitos</a> | <a href="">Finalizados</a> | <a href="">Home</a></p>
 	</header>
-	<div class="email">
-		<h1></h1>
-		<textarea></textarea>
-		<div class="enviar-email" title="Enviar!"><i class="fa-regular fa-paper-plane" style="position: absolute;
-	top: 50%;
-	left: 45%;
-	transform: translate(-50%,-50%);
-	display: block;
-	color: red;
-	font-size: 25px;"></i></div><!--enviar-email-->
-	<div class="cancelar" title="Cancelar!"><i class="fa-solid fa-xmark" style="position: absolute;
-	top: 50%;
-	left: 49%;
-	transform: translate(-50%,-50%);
-	display: block;
-	color: red;
-	font-size: 25px;"></i></div><!--cancelar-->
-	</div><!--email-->
-	<p class="vertical direita">Aprovados</p>
 	<div class="container">
-		<div class="avisos">
+		<div class="avisos"><!--não sei se vou deixar isso nesta página-->
 			<p class="aviso">Hoje(<?php echo 11; ?>)</p>
 			<article>
 				<?php
@@ -59,16 +40,23 @@
 				for($i=0;$i<11;$i++){
 					echo <<<ELEMENTOS
 					<p cliente_id="$i" cliente_nome="Leitonia" cliente_hora="20:05" cliente_data="12/12/2024">
-					Leitônia | 12/12/2024 | 20:05 | <msglimit>$msg</msglimit> 
-					<strong class="botoes" aceitar>Aceitar</strong> <strong class="botoes">Recusar</strong>
+					Leitônia | 12/12/2024 | 20:05 | <msglimit>$msg</msglimit>
 					</p>
 					ELEMENTOS;
 				}
 			?>
+			<div class="paginacao">
+				<?php
+					for($i=1;$i<20;$i++){
+						$at = $i%2 == 0?'atual':'';
+						echo <<<ELEMENTOS
+						<p $at>$i</p>
+						ELEMENTOS;
+					}
+				?>
+			</div><!--paginacao-->
 		</section><!--lista-->
 	</div><!--container-->
 </body>
-<script src="<?php echo PATH; ?>js/agenda.js"></script>
 <script src="<?php echo PATH; ?>js/agenda-exibirmsg.js"></script>
-<script src="https://kit.fontawesome.com/577303188c.js" crossorigin="anonymous"></script>
 </html>

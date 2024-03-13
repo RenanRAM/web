@@ -35,18 +35,6 @@ caixa_email.querySelector('div.enviar-email').addEventListener('click',()=>{
 	}
 });
 
-//adicionar função aos elementos p da lista
-document.querySelectorAll('section.lista p').forEach(ele=>{
-	ele.addEventListener('click',function(){
-		exibirMsgCompleta(this);
-	});
-});
-
-//adicionar função a div que mostra a mensagem completa
-document.querySelector('section.lista div.msg-completa').addEventListener('click',function(){
-	this.attributeStyleMap.set('display','none');
-});
-
 function abrirCaixaEmail(aceitou,nome,data,hora,id){
 	caixa_email.setAttribute('id_cliente',id);
 	let titulo = caixa_email.querySelector('h1');
@@ -106,14 +94,6 @@ function removerAnimado(id){
 	elemento.attributeStyleMap.set('border','0');
 	fecharCaixaEmail()
 	setTimeout(()=>{elemento.remove();},700);
-}
-
-function exibirMsgCompleta(elep){
-	let top = elep.offsetTop;
-	let caixa = document.querySelector('div.msg-completa');
-	caixa.textContent = elep.querySelector('msglimit').textContent;
-	caixa.attributeStyleMap.set('top',top+'px');
-	caixa.attributeStyleMap.set('display','block');
 }
 
 function enviar(dados,sucFunc = null,errFunc = null){

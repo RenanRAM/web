@@ -51,6 +51,7 @@
 	$controle->rota('pgf','gerenciar-imgs.php','imgs-home');
 	$controle->rota('login','login.php');
 	$controle->rota('agenda','agenda-home.php','home');
+	$controle->rota('agenda','agenda-finalizados.php','finalizados');
 	
 	/* protótipo de uma forma de proteção
 	$controle->proteger([

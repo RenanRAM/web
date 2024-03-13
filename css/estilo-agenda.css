@@ -117,7 +117,7 @@ section.lista{
 	background-color: #fff6e5;
 }
 
-section.lista p{
+section.lista > p{
 	border-bottom: 1px solid lightgray;
 	line-height: 31px;
 	position: relative;
@@ -135,15 +135,15 @@ section.lista msglimit{
 	vertical-align: bottom;
 }
 
-section.lista p .botoes{
+section.lista > p .botoes{
 	display: none;
 }
 
-section.lista p:hover{
+section.lista > p:hover{
 	background-color: #f1e6d0;
 }
 
-section.lista p:hover .botoes{
+section.lista > p:hover .botoes{
 	display: inline-block !important;
 }
 
@@ -155,7 +155,7 @@ section.lista strong:hover{
 	color: red !important;
 }
 
-section.lista p[cliente_id]{
+section.lista > p[cliente_id]{
 	transition: bottom 700ms cubic-bezier(.47,0,.92,0),height 450ms ease-in;
 }
 
@@ -168,6 +168,7 @@ section.lista div.msg-completa{
 	display: none;
 	padding: 3px;
 	cursor: pointer;
+	border-radius: 10px;
 }
 
 div.email{
@@ -247,6 +248,34 @@ div.email div.cancelar::before{
 	position: absolute;
 	top: -27px;
 	content: 'Cancelar';
+}
+
+div.paginacao{
+	width: 150px;
+	border-bottom: 1px solid lightgray;
+	margin: 20px auto;
+	position: relative;
+	overflow-x: auto;
+	height: 52px;
+	white-space: nowrap;
+	overflow-y: hidden;
+}
+
+div.paginacao p{
+	position: relative;
+	display: inline-block;
+	margin: 0 5px;
+	line-height: 14px;
+	cursor: pointer;
+}
+
+div.paginacao p[atual]{
+	font-weight: bolder;
+	border-top: 2px solid gray;
+}
+
+div.paginacao p:hover{
+	border-top: 2px solid gray;
 }
 
 @keyframes alertar{
