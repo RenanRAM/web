@@ -278,6 +278,80 @@ div.paginacao p:hover{
 	border-top: 2px solid gray;
 }
 
+div.confirma-fundo{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(2px);
+	z-index: 2;
+	display: none;
+}
+
+div.confirma-fundo div.confirma-janela{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: whitesmoke;
+	border: 2px solid darkred;
+	border-radius: 10px;
+	padding: 18px;
+	padding-top: 6px;
+	max-width: 600px;
+	animation: aparecer 380ms cubic-bezier(.36,.68,.39,1.02);
+}
+
+div.confirma-fundo div.confirma-janela article h2{
+	text-align: center;
+	font-weight: 500;
+	font-size: 25px;
+	border-bottom: 1px solid #e77a7a;
+	color: darkred;
+}
+
+div.confirma-fundo div.confirma-janela div.btn-confirma{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	margin-top: 10px;
+}
+
+div.btn-confirma div.sim{
+	padding: 5px 14px;
+	font-weight: 500;
+	background-color: #0db918;
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 3px solid transparent;
+}
+
+div.btn-confirma div.sim:hover{
+	border-color: #008709;
+}
+
+div.btn-confirma div.nao{
+	padding: 5px 14px;
+	font-weight: 500;
+	background-color: #cd211b;
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 3px solid transparent;
+}
+
+div.btn-confirma div.nao:hover{
+	border-color: #910500;
+}
+
+@keyframes aparecer{
+	0%{top: 1%;}
+	100%{top: 50%;}
+}
+
 @keyframes alertar{
 	60%{color:red}
 }

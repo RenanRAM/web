@@ -52,6 +52,7 @@
 	$controle->rota('login','login.php');
 	$controle->rota('agenda','agenda-home.php','home');
 	$controle->rota('agenda','agenda-finalizados.php','finalizados');
+	$controle->rota('agenda','agenda-aceitos.php','aceitos');
 	
 	/* protótipo de uma forma de proteção
 	$controle->proteger([
