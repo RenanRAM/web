@@ -1,3 +1,5 @@
+//precisa de agenda-base.js
+
 const titulo_aceitar = "Marcar horário: ?data? ?hora? para ?nome?";
 const titulo_recusar = "Recusar horário: ?data? ?hora? de ?nome?";
 const frase_aceitar = "?nome?, sua solicitação de horário: ?data? ?hora? foi aceita!";
@@ -84,33 +86,5 @@ function enviarEmail(email_texto,id_cliente,aceitou){
 	formulario.append('email_texto',email_texto);
 	formulario.append('aceitou',aceitou);
 	formulario.append('id_cliente',id_cliente);
-	enviar(formulario,()=>{removerAnimado(id_cliente)});
-}
-
-function removerAnimado(id){
-	let elemento = document.querySelector('p[cliente_id="'+id+'"]');
-	elemento.attributeStyleMap.set('bottom','-700px');
-	elemento.attributeStyleMap.set('height','0px');
-	elemento.attributeStyleMap.set('border','0');
-	fecharCaixaEmail()
-	setTimeout(()=>{elemento.remove();},700);
-}
-
-function enviar(dados,sucFunc = null,errFunc = null){
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", "ajaxPHP/controladorEmail.php", true);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			console.log('Resposta do ajax: '+xhr.response);
-			if(xhr.response = 'tudo certo' || true){//validar alguma resposta
-				if(sucFunc!=null){
-					sucFunc();
-				}
-			}
-		}
-	};
-	xhr.onerror = function(){
-		alert("Ocorreu um erro de comunicação com o servidor");
-	}
-	xhr.send(dados);
+	enviar('ajaxPHP/controladorEmail.php',formulario,(resposta)=>{removerAnimado(id_cliente);console.log(resposta);});
 }

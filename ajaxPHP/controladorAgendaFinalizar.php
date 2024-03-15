@@ -3,9 +3,9 @@
 	include('../classes.php');
 
 	proteger(2);
-	$id_cliente = $_POST['id_cliente'];
+	$id_cliente = $_POST['finalizar'];
 
 	//recuperar os dados do cliente com base neste id e finalizar o atendimento marcado na agenda
-	echo "Atendimento de ?pegar o nome do cliente? finalizado";
+	echo "Atendimento de ?pegar o nome do cliente com id: ".$id_cliente."? finalizado";
 
 ?>

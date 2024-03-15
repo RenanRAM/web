@@ -1,5 +1,4 @@
-
-
+//script independente
 
 let paginador = document.querySelector('div.paginacao');
 

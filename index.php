@@ -28,6 +28,7 @@
 	-ok colocar title="titulo do link" nas tags <a> e <img>
 	-ok colocar alt="texto alternativo" nas tags <img>
 	-ok reduzir a altura dos slides para telas menores no responsivo
+	-script para geração automática das tabelas do banco de dados
 	-agenda status: em andamento...
 
 	

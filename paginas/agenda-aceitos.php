@@ -22,7 +22,7 @@
 <body>
 	<header>
 		<p class="titulo">Agenda/Aceitos</p>
-		<p class="selecao"><a href="<?php echo PATH."?agenda=pendentes" ?>">Aceitos</a> | <a href="">Finalizados</a> | <a href="">Home</a></p>
+		<p class="selecao"><a href="<?php echo PATH."?agenda=aceitos" ?>">Aceitos</a> | <a href="<?php echo PATH."?agenda=finalizados" ?>">Finalizados</a> | <a href="<?php echo PATH."?agenda=home" ?>">Home</a></p>
 	</header>
 	<div class="confirma-fundo">
 		<div class="confirma-janela">
@@ -74,6 +74,7 @@
 		</section><!--lista-->
 	</div><!--container-->
 </body>
+<script src="<?php echo PATH; ?>js/agenda-base.js"></script>
 <script src="<?php echo PATH; ?>js/agenda-finalizador.js"></script>
 <script src="<?php echo PATH; ?>js/paginador.js"></script>
 <script src="<?php echo PATH; ?>js/agenda-exibirmsg.js"></script>

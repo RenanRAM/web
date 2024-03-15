@@ -9,7 +9,7 @@
 
 	//recuperar os dados do cliente com base neste id e enviar um email para ele, tambem retornar o status via echo
 
-	echo "email enviado, tudo certo";
+	echo "email enviado, tudo certo 12345";
 	//ou
 	echo "Algo deu errado";
 

@@ -1,3 +1,5 @@
+//script independente
+
 //adicionar função aos elementos p da lista
 document.querySelectorAll('section.lista > p').forEach(ele=>{
 	ele.addEventListener('click',function(){

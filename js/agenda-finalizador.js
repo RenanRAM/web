@@ -1,3 +1,6 @@
+//precisa de agenda-base.js
+
+//adicionar evento ao botões de finalizar
 document.querySelectorAll('strong.botoes').forEach(ele=>{
 	ele.addEventListener('click', function(evento){
 		evento.stopPropagation();
@@ -6,30 +9,22 @@ document.querySelectorAll('strong.botoes').forEach(ele=>{
 		let nome = pai.getAttribute('cliente_nome');
 		let hora = pai.getAttribute('cliente_hora');
 		let data = pai.getAttribute('cliente_data');
-		abrirConfirma('Deseja finalizar o atendimento de '+nome+', marcado para a data '+data+' | '+hora+' ?');
+		abrirConfirma('Deseja finalizar o atendimento de '+nome+', marcado para a data '+data+' | '+hora+' ?',()=>{
+			enviar('ajaxPHP/controladorAgendaFinalizar.php',gerarFormSingle('finalizar',cliente_id),(respostaAjax)=>{
+				console.log(respostaAjax);
+			},null);
+		},()=>{
+
+		});
 	});
 });
 
-function enviar(dados,sucFunc = null,errFunc = null){
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", "ajaxPHP/controladorAgendaFinalizar.php", true);
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4 && xhr.status == 200) {
-			console.log('Resposta do ajax: '+xhr.response);
-			if(xhr.response = 'tudo certo' || true){//validar alguma resposta
-				if(sucFunc!=null){
-					sucFunc();
-				}
-			}
-		}
-	};
-	xhr.onerror = function(){
-		alert("Ocorreu um erro de comunicação com o servidor");
-	}
-	xhr.send(dados);
+function gerarFormSingle(cod,dado){
+	let formulario = new FormData();
+	formulario.append(cod,dado);
+	return formulario;
 }
-
-
+//abrir caixa de confirmação
 function abrirConfirma(msg = '',sim = null,nao= null){
 	let fundo = document.querySelector('div.confirma-fundo');
 	fundo.attributeStyleMap.set('display','block');
@@ -43,11 +38,11 @@ function abrirConfirma(msg = '',sim = null,nao= null){
 			sim();
 		}
 		fundo.attributeStyleMap.set('display','none');
-	});
+	},{'once':true});
 	btn_nao.addEventListener('click',()=>{
 		if(nao instanceof Function){
 			nao();
 		}
 		fundo.attributeStyleMap.set('display','none');
-	});
+	},{'once':true});
 }

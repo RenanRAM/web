@@ -19,7 +19,7 @@
 <body>
 	<header>
 		<p class="titulo">Agenda/Home</p>
-		<p class="selecao"><a href="<?php echo PATH."?agenda=pendentes" ?>">Aceitos</a> | <a href="">Finalizados</a> | <a href="">Home</a></p>
+		<p class="selecao"><a href="<?php echo PATH."?agenda=aceitos" ?>">Aceitos</a> | <a href="<?php echo PATH."?agenda=finalizados" ?>">Finalizados</a> | <a href="<?php echo PATH."?agenda=home" ?>">Home</a></p>
 	</header>
 	<div class="email">
 		<h1></h1>
@@ -68,7 +68,8 @@
 		</section><!--lista-->
 	</div><!--container-->
 </body>
-<script src="<?php echo PATH; ?>js/agenda.js"></script>
+<script src="<?php echo PATH; ?>js/agenda-base.js"></script>
+<script src="<?php echo PATH; ?>js/agenda-caixaEmail.js"></script>
 <script src="<?php echo PATH; ?>js/agenda-exibirmsg.js"></script>
 <script src="https://kit.fontawesome.com/577303188c.js" crossorigin="anonymous"></script>
 </html>

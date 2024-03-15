@@ -19,7 +19,7 @@
 <body>
 	<header>
 		<p class="titulo">Agenda/Finalizados</p>
-		<p class="selecao"><a href="<?php echo PATH."?agenda=pendentes" ?>">Aceitos</a> | <a href="">Finalizados</a> | <a href="">Home</a></p>
+		<p class="selecao"><a href="<?php echo PATH."?agenda=aceitos" ?>">Aceitos</a> | <a href="<?php echo PATH."?agenda=finalizados" ?>">Finalizados</a> | <a href="<?php echo PATH."?agenda=home" ?>">Home</a></p>
 	</header>
 	<div class="container">
 		<div class="avisos"><!--não sei se vou deixar isso nesta página-->
