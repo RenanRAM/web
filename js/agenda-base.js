@@ -1,10 +1,11 @@
 //funções base para todas as agendas
-function removerAnimado(id){
+function removerAnimado(id,chamada){
 	let elemento = document.querySelector('p[cliente_id="'+id+'"]');
 	elemento.attributeStyleMap.set('bottom','-700px');
 	elemento.attributeStyleMap.set('height','0px');
 	elemento.attributeStyleMap.set('border','0');
-	fecharCaixaEmail()
+	if(chamada instanceof Function)
+		chamada();
 	setTimeout(()=>{elemento.remove();},700);
 }
 

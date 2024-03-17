@@ -86,5 +86,5 @@ function enviarEmail(email_texto,id_cliente,aceitou){
 	formulario.append('email_texto',email_texto);
 	formulario.append('aceitou',aceitou);
 	formulario.append('id_cliente',id_cliente);
-	enviar('ajaxPHP/controladorEmail.php',formulario,(resposta)=>{removerAnimado(id_cliente);console.log(resposta);});
+	enviar('ajaxPHP/controladorEmail.php',formulario,(resposta)=>{removerAnimado(id_cliente,fecharCaixaEmail);console.log(resposta);});
 }

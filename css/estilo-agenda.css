@@ -177,9 +177,10 @@ div.email{
 	right: 10px;
 	transform: translate(0,-50%);
 	z-index: 1;
-	border: 2px solid darkred;
+	border: 2px solid #e77a7a;
 	background-color: ghostwhite;
 	display: none;
+	border-radius: 10px;
 }
 
 div.email h1{
@@ -195,6 +196,15 @@ div.email textarea{
 	display: block;
 	resize: none;
 	padding: 5px;
+	border-top: 2px solid #e77a7a;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0 0 10px 10px;
+}
+
+div.email textarea:focus-visible{
+	outline: none;
 }
 
 div.email div.enviar-email{
