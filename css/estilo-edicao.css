@@ -230,7 +230,7 @@ div.img-fundo{
 	width: 100%;
 	text-align: center;
 	padding-top: 20px;
-	object-fit: cover;
+	background-size: cover;
 	background-position: center;
 }
 
