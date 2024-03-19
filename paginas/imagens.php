@@ -43,7 +43,7 @@
 	<header>
 		<a title="Página principal" href="<?php echo PATH; ?>"><p class="brilho"><?php echo NOME_EMPRESA; ?></p></a>
 		<div>
-			<a title="Contato" href="https://wa.me/5551984197554" target="_blank"></i><p class="brilho"><i class="fa fa-whatsapp"></i> <?php echo $infoSite['telefone']; ?></p></a>	
+			<a title="Contato" href="https://wa.me/5551984197554" target="_blank"><p class="brilho"><i class="fa fa-whatsapp"></i> <?php echo $infoSite['telefone']; ?></p></a>	
 		</div>
 	</header>
 	<article class="ambientes"><a title="Todos ambientes" href="<?php echo PATH.'?ambientes'; ?>"><h1>Ambientes: <?php echo $nomeCategoria; ?></h1></a></article>

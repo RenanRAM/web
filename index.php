@@ -30,8 +30,14 @@
 	-ok reduzir a altura dos slides para telas menores no responsivo
 	-script para geração automática das tabelas do banco de dados
 	-agenda status: em andamento...
+	-finalizar o front da página de contato
+	-animações de enviando e icones
+	-adicionar botão de enviar no form contato
+	-validar a solicatação via php
+	-criar banco de dados de solicitações com status
+	-impedir o envio de muitas solicitações do mesmo cliente via tempo
 
-	
+
 	-!sistema de backup!
 -->
 
@@ -46,6 +52,7 @@
 	$controle->rota(0,'inde.php');
 	$controle->rota('ambientes','ambientes.php');
 	$controle->rota('imagens','imagens.php');
+	$controle->rota('contato','contato.php',);
 	$controle->rota('pgf','editar-categorias.php','editar-categorias');
 	$controle->rota('pgf','editar.php','edicao-geral');
 	$controle->rota('pgf','categoria.php','cat');

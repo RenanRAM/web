@@ -40,7 +40,7 @@
 		<p class="brilho"><?php echo NOME_EMPRESA; ?></p>
 		<div>
 			<a title="Todos ambientes" href="<?php echo PATH; ?>?ambientes"><!--<i id="icone_menu" class="fa fa-arrow-circle-o-down"></i>--><p class="brilho pglink">Ambientes</p></a>
-			<a title="Contato" href="https://wa.me/5551984197554" target="_blank"></i><p class="brilho"><i class="fa fa-whatsapp"></i> <?php echo $infoSite['telefone']; ?></p></a>	
+			<a title="Contato" href="https://wa.me/5551984197554" target="_blank"><p class="brilho"><i class="fa fa-whatsapp"></i> <?php echo $infoSite['telefone']; ?></p></a>	
 		</div>
 	</header>
 	<div class="grade-principal">

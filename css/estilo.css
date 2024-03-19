@@ -102,7 +102,6 @@ footer{
 
 footer article{
 	width: 100%;
-	height: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -473,7 +472,7 @@ label.label-input-file-E2 p{
 	width: auto;
 	text-align: center;
 }
-
+/*icones do menu*/
 #icone_menu{
 	transition: transform ease 800ms;
 	font-size: 29px;
@@ -484,7 +483,7 @@ label.label-input-file-E2 p{
 #icone_menu.aberto{
 	transform: rotate(0deg);
 }
-
+/*Input do tempo de slide*/
 div.controle-tempo{
 	position: absolute;
 	left: 15px;
@@ -597,6 +596,69 @@ div.icone i.fa-picture-o{
 	left: 0px;
 }
 
+/*Página de contato*/
+
+body.contato-fundo{
+	background-color: whitesmoke;
+	background-image: none;
+}
+
+div.contato-principal{
+	width: 100%;
+	height: calc(100vh - 50px);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+
+}
+
+div.contato-principal article.info{
+	max-width: 930px;
+}
+
+form.form-contato{
+	margin: 15px;
+	padding: 10px;
+	border-left: 2px solid #e77a7a;
+	border-right: 2px solid #e77a7a;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	align-content: space-around;
+	justify-content: space-evenly;
+}
+
+div.contato-principal article.info h2,
+div.contato-principal article.info p{
+	margin: 0 20px;
+}
+
+div.contato-principal article.info h2{
+	text-align: center;
+	color: rgb(255,77,77);
+	font-size: 25px;
+	font-weight: 400;
+}
+
+form.form-contato div{
+	margin: 10px 0;
+	flex-basis: 40%;
+}
+
+form.form-contato div[tipo="total"]{
+	flex-basis: 86.667%;
+}
+
+form.form-contato div input{
+	width: 100%;
+	height: 100%;
+	padding-left: 4px;
+}
+
+
 /*Keyframes*/
 
 @keyframes mudaBrilho{
@@ -693,6 +755,7 @@ div.icone i.fa-picture-o{
 	div.container-imgs{
 		grid-template-columns: calc(110px + 45%);
 	}
+	/*Mudar o form de contato a partir desta resolução*/
 }
 
 @media screen and (max-width: 440px){
