@@ -57,14 +57,15 @@
 				</div>
 				<div>
 					<label for="in_fone">Número de telefone</label>
-					<input type="number" name="fone" id="in_fone" placeholder="9813543354...">
+					<input type="text" name="fone" id="in_fone" placeholder="(51)9813543354...">
 				</div>
 				<div tipo="total">
 					<label for="in_msg">Descrição curta</label>
 					<input type="text" name="msg" id="in_msg" placeholder="Gostaia de fazer uma cozinha, quarto...">
 				</div>
-				
 			</form>
+			<p>Após clicar em enviar, você será notificado por E-mail sobre a aprovação do seu horário para o atendimento</p>
+			<button class="btn-enviar">Enviar</button>
 		</article><!--info-->
 	</div><!--contato--fundo-->
 	<footer>

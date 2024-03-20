@@ -195,7 +195,7 @@
 		}else if($total > 4){
 			$total = 4;
 		}
-		$data = $sql->fetchAll();
+		//$data = $sql->fetchAll();
 		$sql = MySql::conectar()->prepare("SELECT COUNT(id) AS 'total', catid FROM `imgs-categorias` WHERE catid != ? GROUP BY catid");
 		$sql->execute([$dif]);
 		$num = $sql->fetchAll();//$num[total] = numero de imgs
@@ -232,7 +232,7 @@
 				$n[$ultCat]['select']++;
 			}
 			$ultCat++;
-			if($ultCat > ($max -1)){
+			if($ultCat > ($max -1)){//garante o loop do contador que 'da a volta' sempre que chega ao máximo
 				$ultCat -=$max;
 			}
 			$sec++;//contador de segurança

@@ -658,6 +658,26 @@ form.form-contato div input{
 	padding-left: 4px;
 }
 
+div.contato-principal article.info button.btn-enviar{
+	margin: 14px auto;
+	background-color: rgb(255,77,77);
+	color: white;
+	border: 0;
+	padding: 8px 12px;
+	border-radius: 10px;
+	display: block;
+	font-size: 20px;
+	cursor: pointer;
+	transition: box-shadow 900ms ease;
+}
+
+div.contato-principal article.info button.btn-enviar:hover{
+	   box-shadow: 0 0 19px 4px rgb(255,110,110);
+}
+
+div.contato-principal article.info button.btn-enviar:hover article.info{
+	display: none;
+}
 
 /*Keyframes*/
 

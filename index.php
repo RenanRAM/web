@@ -36,7 +36,7 @@
 	-validar a solicatação via php
 	-criar banco de dados de solicitações com status
 	-impedir o envio de muitas solicitações do mesmo cliente via tempo
-
+	-criar mascara para o input de número de telefone
 
 	-!sistema de backup!
 -->
