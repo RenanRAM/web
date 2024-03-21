@@ -57,7 +57,7 @@
 				</div>
 				<div>
 					<label for="in_fone">Número de telefone</label>
-					<input type="text" name="fone" id="in_fone" placeholder="(51)9813543354...">
+					<input type="text" name="fone" id="in_fone" placeholder="(51)98135-4334...">
 				</div>
 				<div tipo="total">
 					<label for="in_msg">Descrição curta</label>

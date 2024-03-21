@@ -672,11 +672,7 @@ div.contato-principal article.info button.btn-enviar{
 }
 
 div.contato-principal article.info button.btn-enviar:hover{
-	   box-shadow: 0 0 19px 4px rgb(255,110,110);
-}
-
-div.contato-principal article.info button.btn-enviar:hover article.info{
-	display: none;
+	box-shadow: 0 0 19px 4px rgb(255,110,110);
 }
 
 /*Keyframes*/
