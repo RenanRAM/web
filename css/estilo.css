@@ -632,7 +632,7 @@ form.form-contato{
 }
 
 div.contato-principal article.info h2,
-div.contato-principal article.info p{
+div.contato-principal article.info > p{
 	margin: 0 20px;
 }
 
@@ -675,7 +675,38 @@ div.contato-principal article.info button.btn-enviar:hover{
 	box-shadow: 0 0 19px 4px rgb(255,110,110);
 }
 
+/*div animada*/
+
+article.info div.anima{
+	background-color: whitesmoke;
+	position: relative;
+	border-right: 2px solid #e77a7a;
+	border-left: 2px solid #e77a7a;
+	overflow: hidden;
+}
+
+article.info div.animaCont{
+	position: relative;
+	padding: 10px;
+}
+
+article.info div.animaCont > p{
+	color: rgb(255,110,110);
+	position: absolute;
+	transform: translate(0,-50%);
+	top: 50%;
+	left: 10%;
+	z-index: -1;
+	display: block;
+	font-size: 36px;
+	font-weight: 500;
+}
+
 /*Keyframes*/
+
+@keyframes encolherForm{
+	100%{width: 0px;}
+}
 
 @keyframes mudaBrilho{
 	50%{text-shadow: 0 0 6px #555;}

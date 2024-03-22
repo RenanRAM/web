@@ -2,6 +2,7 @@ let formulario = document.querySelector('form');
 let caixaResposta = document.querySelector('div.caixaResposta');
 let btnEnviar = document.querySelector('header');
 let inputData =  document.getElementById('in_data');
+let artInfo = document.querySelector('article.info');
 const mascara = '(2)5-4';
 let imask = null;
 
@@ -61,7 +62,7 @@ function interpretarMask(mask){//funcionando
 				//é um número
 				aux = '';
 				char_aux = null;
-				fim = true;
+				fim = true;//se o laço 'for' acabar naturalmente quer dizer que acabou a string da mascara
 				for(let a = i;a<tam;a++){
 					char_aux = mask.charAt(a);
 					if(isNaN(Number(char_aux))){
@@ -97,13 +98,10 @@ function aplicarMask(gabarito,texto_pre){//funcionando
 	let i_gab = 0;
 	let i_txt = 0;
 	let aux = 0;
+	principal:
 	for(i_gab = 0; i_gab < tam_gab;i_gab++){//percorrer gabarito
 		if(!(typeof gabarito[i_gab] === 'number')){
-			if(i_txt<tam_txt){//só adiciona um caracter do gabarito se 
-				aplicado += gabarito[i_gab];
-			}else{
-				break;
-			}
+			aplicado += gabarito[i_gab];
 		}else{
 			aux = 0;
 			for(;i_txt<tam_txt;i_txt++){
@@ -113,7 +111,33 @@ function aplicarMask(gabarito,texto_pre){//funcionando
 				aplicado+=texto.charAt(i_txt);
 				aux++;
 			}
+			if(i_txt==tam_txt){// o texto acabou, sair de tudo
+				break principal;
+			}
 		}
 	}
 	return aplicado;
+}
+
+function animarForm(){
+	let novaDivCont = document.createElement('div');
+	let novaDiv = document.createElement('div');
+	let fraseP = document.createElement('p');
+	fraseP.textContent="Enviado";
+	novaDivCont.classList.add('animaCont');
+	novaDiv.classList.add('anima');
+	novaDivCont.appendChild(fraseP);
+	let wform = formulario.clientWidth;
+	let hform = formulario.clientHeight;
+	//console.log(wform);
+	formulario.attributeStyleMap.set('width',wform+"px");
+	formulario.attributeStyleMap.set('margin-right','0');
+	formulario.attributeStyleMap.set('margin-left','0');
+	formulario.attributeStyleMap.set('border','0');
+	artInfo.insertBefore(novaDivCont,formulario);
+	novaDiv.appendChild(formulario);
+	novaDivCont.appendChild(novaDiv);
+	novaDiv.attributeStyleMap.set('width',wform+"px");
+	novaDiv.attributeStyleMap.set('height',hform+"px");
+	novaDiv.attributeStyleMap.set('animation','encolherForm 1300ms ease forwards');
 }
