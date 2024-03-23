@@ -656,6 +656,7 @@ form.form-contato div input{
 	width: 100%;
 	height: 100%;
 	padding-left: 4px;
+	border:	1px solid gray;
 }
 
 div.contato-principal article.info button.btn-enviar{
@@ -687,7 +688,7 @@ article.info div.anima{
 
 article.info div.animaCont{
 	position: relative;
-	padding: 10px;
+	margin: 15px;
 }
 
 article.info div.animaCont > p{

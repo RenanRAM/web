@@ -31,9 +31,11 @@
 	-script para geração automática das tabelas do banco de dados
 	-agenda status: em andamento...
 	-finalizar o front da página de contato
-	-animações de enviando e icones
+	-icones do form de contato
+	-ok animação de enviado do contato
 	-ok adicionar botão de enviar no form contato
 	-validar a solicatação via php
+	-ok validar campos do formulario contato via JS
 	-criar banco de dados de solicitações com status
 	-impedir o envio de muitas solicitações do mesmo cliente via tempo
 	-ok criar mascara para o input de número de telefone
