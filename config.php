@@ -87,7 +87,9 @@
 		if(isset($_SESSION['tok'])){
 			if($_SESSION['tok'] != ''){
 				$sql = MySql::conectar()->prepare("SELECT hash FROM `info_login` WHERE nome = 'tok'");
-				$sql->execute();
+				if(!$sql->execute()){
+					return false;
+				}
 				$hash = $sql->fetch();
 				return hash_equals($hash['hash'],crypt($_SESSION['tok'],$hash['hash']));
 			}
@@ -129,8 +131,9 @@
 		if($tok != ''){
 			$_SESSION['tok'] = $id;
 			$sql = MySql::conectar()->prepare("UPDATE `info_login` SET hash = ? WHERE nome = 'tok'");
-			$sql->execute([$tok]);
+			return $sql->execute([$tok]);
 		}
+		return false;
 	}
 
 	function sair($f = null){
@@ -256,6 +259,5 @@
 		}
 		return $nomesFinal;
 	}
-
 
 ?>

@@ -63,10 +63,13 @@ $(function(){
 			// A guia não está visível
 			//parar a animação mais pesada
 			clearInterval(changeSlideId);
+			changeSlideId = null;
 		}else {
 			// A guia está visível
 			//retornar a animação
-			changeSlideId = changeSlide();
+			if(changeSlideId == null){
+				changeSlideId = changeSlide();
+			}
 		}
 	});
 })
