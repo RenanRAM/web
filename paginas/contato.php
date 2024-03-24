@@ -40,16 +40,16 @@
 	</header>
 	<div class="contato-principal">
 		<article class="info">
-			<h2>Agende um atendimento</h2>
+			<h2><i class="fa fa-envelope-o"></i> Agende um atendimento</h2>
 			<p>Você pode entrar em contato diretamente pelo número <a title="Contato" href="https://wa.me/5551984197554" target="_blank"><i class="fa fa-whatsapp"></i> <?php echo $infoSite['telefone']; ?></a> ou marcando um horário usando os campos abaixo</p>
 			<form method="post" class="form-contato">
 				<div>
 					<label for="in_nome">Nome completo</label>
-					<input type="text" name="nome" id="in_nome" placeholder="Nome...">
+					<input type="text" name="nome" id="in_nome" placeholder="Nome..." maxlength="78">
 				</div>
 				<div>
 					<label for="in_email">E-mail para contato</label>
-					<input type="email" name="email" id="in_email" placeholder="E-mail">
+					<input type="email" name="email" id="in_email" placeholder="E-mail" maxlength="78">>
 				</div>
 				<div>
 					<label for="in_data">Data sugerida</label>
@@ -61,10 +61,10 @@
 				</div>
 				<div tipo="total">
 					<label for="in_msg">Descrição curta</label>
-					<input type="text" name="msg" id="in_msg" placeholder="Gostaia de fazer uma cozinha, quarto...">
+					<input type="text" name="msg" id="in_msg" placeholder="Gostaia de fazer uma cozinha, quarto..." maxlength="78">>
 				</div>
 			</form>
-			<p>Após clicar em enviar, você será notificado por E-mail sobre a aprovação do seu horário para o atendimento</p>
+			<p>Após clicar em enviar, você receberá um E-mail para confirmação de agendamento de atendimento e mais informações!</p>
 			<button class="btn-enviar">Enviar</button>
 		</article><!--info-->
 	</div><!--contato--fundo-->

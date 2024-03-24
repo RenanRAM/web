@@ -34,7 +34,7 @@
 	-icones do form de contato
 	-ok animação de enviado do contato
 	-ok adicionar botão de enviar no form contato
-	-validar a solicatação via php
+	-ok validar a solicatação via php
 	-ok validar campos do formulario contato via JS
 	-criar banco de dados de solicitações com status
 	-impedir o envio de muitas solicitações do mesmo cliente via tempo
