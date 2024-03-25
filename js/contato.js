@@ -38,24 +38,20 @@ btnEnviar.addEventListener("click", function(evento) {
 	let datatest = /^\d{4}\-\d{2}\-\d{2}T\d{2}\:\d{2}$/;
 	let emailtest = /^[\w\-\.]+@[\w\-\.]+\.[\w\-\.]+$/;
 	formdata.forEach(function(valor,chave){//cria um array contendo os campos com problemas
+		let testeProblema = false;
 		switch (chave){
 		case 'email':
-			if(!emailtest.test(valor)){
-				problemas.push(chave);
-				tudo_certo = false;
-			}
+			testeProblema = !emailtest.test(valor);
 		break;
 		case 'data':
-			if(!datatest.test(valor)){
-				problemas.push(chave);
-				tudo_certo = false;
-			}
+			testeProblema = !datatest.test(valor);
 		break;
 		default:
-			if(valor == ''){
-				problemas.push(chave);
-				tudo_certo = false;
-			}
+			testeProblema = valor == '';
+		}
+		if(testeProblema){
+			problemas.push(chave);
+			tudo_certo = false;
 		}
 	});
 	if(tudo_certo){//verifica se tem algum problema

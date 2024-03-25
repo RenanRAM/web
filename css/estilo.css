@@ -618,6 +618,11 @@ div.contato-principal article.info{
 	max-width: 930px;
 }
 
+div.contato-principal article.info p[aviso]{
+	text-decoration: underline;
+	font-weight: 500;
+}
+
 form.form-contato{
 	margin: 15px;
 	padding: 10px;

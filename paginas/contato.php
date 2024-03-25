@@ -49,7 +49,7 @@
 				</div>
 				<div>
 					<label for="in_email">E-mail para contato</label>
-					<input type="email" name="email" id="in_email" placeholder="E-mail" maxlength="78">>
+					<input type="email" name="email" id="in_email" placeholder="E-mail" maxlength="78">
 				</div>
 				<div>
 					<label for="in_data">Data sugerida</label>
@@ -61,7 +61,7 @@
 				</div>
 				<div tipo="total">
 					<label for="in_msg">Descrição curta</label>
-					<input type="text" name="msg" id="in_msg" placeholder="Gostaia de fazer uma cozinha, quarto..." maxlength="78">>
+					<input type="text" name="msg" id="in_msg" placeholder="Gostaia de fazer uma cozinha, quarto..." maxlength="78">
 				</div>
 			</form>
 			<p>Após clicar em enviar, você receberá um E-mail para confirmação de agendamento de atendimento e mais informações!</p>

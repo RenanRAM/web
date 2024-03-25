@@ -36,7 +36,7 @@
 	-ok adicionar botão de enviar no form contato
 	-ok validar a solicatação via php
 	-ok validar campos do formulario contato via JS
-	-criar banco de dados de solicitações com status
+	-ok criar banco de dados de solicitações com status
 	-impedir o envio de muitas solicitações do mesmo cliente via tempo
 	-ok criar mascara para o input de número de telefone
 
