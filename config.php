@@ -27,6 +27,7 @@
 	define('HORA_PERMITIDA','22:00');//formato hh:mm exemplo: 13:47
 	define('TEMPO_PERMITIDO_MAX','24');//em horas formato int exemplo: 2
 	date_default_timezone_set('America/Sao_Paulo');
+	define('CICLO_IP_NUM',2); //número máximo de ips ou números recentes armazenados
 
 
 
@@ -258,6 +259,60 @@
 			}
 		}
 		return $nomesFinal;
+	}
+
+	function verificaRecente($ip = '',$num = ''){//verifica e atualiza requisições recentes
+		$sqlp = MySql::conectar();
+		if($num === ''){//apenas o ip
+			$sql = $sqlp->prepare("SELECT * FROM `temp_ip_num` WHERE ip = ?");
+			$sql->bindValue(1,$ip,PDO::PARAM_STR);
+		}else if($ip !== ''){//os dois
+			$sql = $sqlp->prepare("SELECT * FROM `temp_ip_num` WHERE ip = ? AND num = ?");
+			$sql->bindValue(1,$ip,PDO::PARAM_STR);
+			$sql->bindValue(2,$num,PDO::PARAM_INT);
+		}else{//apenas o num
+			$sql = $sqlp->prepare("SELECT * FROM `temp_ip_num` WHERE num = ?");
+			$sql->bindValue(1,$num,PDO::PARAM_INT);
+		}
+		$sql->execute();
+		$result = $sql->fetchAll();//resultado da consulta
+		$sql->closeCursor();//não sei se precisa
+
+		$maiorId = MySql::conectar()->prepare("SELECT MAX(id) AS 'max' FROM `temp_ip_num`");
+		$maiorId->execute();
+		$maiorId = $maiorId->fetch()['max'];
+
+		$inserirp = MySql::conectar();//armazena a conexão de inserção de dados no temp_ip_num
+		if($maiorId >= CICLO_IP_NUM){
+			//usar update com base no id de ciclo atual poi o limite foi atingido
+			//pegar o id atual de ciclo
+			$idAtual = MySql::conectar()->prepare("SELECT texto FROM `info_site` WHERE nome = 'atual-ciclo-id'");
+			$idAtual->execute();
+			$idAtualInt = intval($idAtual->fetch()['texto']);//id do ciclo atual
+			$idAtual->closeCursor();//não sei se precisa
+
+			if($idAtualInt >= CICLO_IP_NUM){//definindo o próximo id a ser atualizado
+				$proximoId = 1;
+			}else{
+				$proximoId = $idAtualInt + 1;
+			}
+
+			$inserir = $inserirp->prepare("UPDATE `temp_ip_num` SET ip = ?, num = ? WHERE id = ?");//atualizandot emp_ip_num
+			$inserir->bindValue(3,$proximoId,PDO::PARAM_INT);
+
+			$ultimoId = MySql::conectar()->prepare("UPDATE `info_site` SET texto = ? WHERE nome = 'atual-ciclo-id'");
+			$ultimoId->execute([$proximoId]);
+
+		}else{
+			//usar insert into pois o id não chegou ao máximo permitido ainda
+			$inserir = $inserirp->prepare("INSERT INTO `temp_ip_num` VALUES(null,?,?)");//ip num
+		}
+		$inserir->bindValue(1,$ip,PDO::PARAM_STR);
+		$inserir->bindValue(2,$num,PDO::PARAM_INT);
+		$inserir->execute();
+		
+
+		return $result;
 	}
 
 ?>
