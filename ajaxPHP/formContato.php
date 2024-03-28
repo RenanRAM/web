@@ -1,4 +1,6 @@
 <?php
+	include('../config.php');
+	include('../classes.php');
 	$chaves_esperadas = ['nome','email','data','fone','msg'];//chaves esperadas a serem recebidas pelo post
 	define('TAMANHO_TEXTO_MAX',78);
 	$datatest = '/^\d{4}\-\d{2}\-\d{2}T\d{2}\:\d{2}$/';//expressão regular para testar a data
@@ -46,8 +48,18 @@
 
 	//primeiro executar $verificar e, se der certo, executar $verificar_valores
 	if($verificar($chaves_esperadas,$_POST)){
-		echo $verificar_valores($postsVerificados)?'Certo':'Errado';
-		echo "  ".$postsVerificados['msg'];
+		if($verificar_valores($postsVerificados)){
+			$ipCliente = getIP();
+			if($ipCliente !== ''){
+				//temos im ip
+				$recente = verificaRecente($ipCliente,1);//apenas verificar para obter a última hora
+				if($recente == null){
+					echo '0';
+				}else{
+					//extrarir hora de $recente e comparar com um tempo de espera mímimo antes de fazer outra solicitação
+				}
+			}
+		}
 	}
 
 ?>

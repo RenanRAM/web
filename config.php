@@ -1,7 +1,7 @@
 <?php
 	define('TITULO_SITE', 'Móveis Cleusa');
 	define('NOME_EMPRESA', 'Móveis Cleusa');
-	define('PATH','http://localhost/sitecleusa/');
+	define('PATH','http://192.168.0.108/sitecleusa/');//ver o arquivo seletor.js para alterar o PATH também
 	define('PATH_MIN','sitecleusa');
 	define('BASE_DIR_IMGS',__DIR__.'/imagens/');
 	define('EXT_ACEITAS',['png','jpg','jpeg','webp']);//tipos de imagens aceitas
@@ -27,7 +27,7 @@
 	define('HORA_PERMITIDA','22:00');//formato hh:mm exemplo: 13:47
 	define('TEMPO_PERMITIDO_MAX','24');//em horas formato int exemplo: 2
 	date_default_timezone_set('America/Sao_Paulo');
-	define('CICLO_IP_NUM',2); //número máximo de ips ou números recentes armazenados
+	define('CICLO_IP_NUM',5); //número máximo de ips ou números recentes armazenados
 
 
 
@@ -261,7 +261,7 @@
 		return $nomesFinal;
 	}
 
-	function verificaRecente($ip = '',$num = ''){//verifica e atualiza requisições recentes
+	function verificaRecente($ip = '',$num = '',$tipo = 0){//verifica e atualiza requisições recentes: apenas verifica se tipo = 1
 		$sqlp = MySql::conectar();
 		if($num === ''){//apenas o ip
 			$sql = $sqlp->prepare("SELECT * FROM `temp_ip_num` WHERE ip = ?");
@@ -278,9 +278,27 @@
 		$result = $sql->fetchAll();//resultado da consulta
 		$sql->closeCursor();//não sei se precisa
 
+		if($tipo == 1){
+			return $result;
+		}
+
+		$dataFormatada = date('Y-m-d H:i:s');//data atual
+		if(count($result) > 0){
+			//temos resultado
+			$ids_array = array_column($result,'id');
+			$maxId = array_reduce($ids_array,function($total,$atual){
+				return ($atual>$total)?$atual:$total;
+			},0);//maior id recente encontrado
+			$sql = MySql::conectar()->prepare("UPDATE `temp_ip_num` SET data = ? WHERE id = ?");
+			$sql->bindValue(1,$dataFormatada,PDO::PARAM_STR);
+			$sql->bindValue(2,$maxId,PDO::PARAM_INT);
+			$sql->execute();
+			return $result;
+		}
+
 		$maiorId = MySql::conectar()->prepare("SELECT MAX(id) AS 'max' FROM `temp_ip_num`");
 		$maiorId->execute();
-		$maiorId = $maiorId->fetch()['max'];
+		$maiorId = $maiorId->fetch()['max'];//maior id da tabela
 
 		$inserirp = MySql::conectar();//armazena a conexão de inserção de dados no temp_ip_num
 		if($maiorId >= CICLO_IP_NUM){
@@ -305,14 +323,25 @@
 
 		}else{
 			//usar insert into pois o id não chegou ao máximo permitido ainda
-			$inserir = $inserirp->prepare("INSERT INTO `temp_ip_num` VALUES(null,?,?)");//ip num
+			$inserir = $inserirp->prepare("INSERT INTO `temp_ip_num` VALUES(null,?,?,?)");//ip num data
 		}
 		$inserir->bindValue(1,$ip,PDO::PARAM_STR);
 		$inserir->bindValue(2,$num,PDO::PARAM_INT);
+		$inserir->bindValue(3,$dataFormatada,PDO::PARAM_STR);
 		$inserir->execute();
 		
-
 		return $result;
+	}
+
+	function getIP(){
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			$ipDoCliente = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}elseif(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+			$ipDoCliente = $_SERVER['HTTP_CLIENT_IP'];
+		}else{
+			$ipDoCliente = $_SERVER['REMOTE_ADDR'];
+		}
+		return $ipDoCliente;
 	}
 
 ?>

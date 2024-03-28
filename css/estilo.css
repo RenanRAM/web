@@ -605,13 +605,12 @@ body.contato-fundo{
 
 div.contato-principal{
 	width: 100%;
-	height: calc(100vh - 50px);
+	min-height: calc(100vh - 50px);
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
-
 }
 
 div.contato-principal article.info{

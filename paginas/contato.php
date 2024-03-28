@@ -5,8 +5,6 @@
 	$infoSite = $sql->fetchAll();
 	$infoSite = isolarChaves($infoSite);
 
-	print_r(verificaRecente('192',7));
-
 ?>
 
 <!DOCTYPE html>

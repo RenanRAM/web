@@ -1,5 +1,5 @@
 $(function(){
-	const PATH = 'http://localhost/sitecleusa/';
+	const PATH = 'http://192.168.0.108/sitecleusa/';
 	let imgAtual = 0;
 
 	$('.selecao img').eq(imgAtual).css('display','block');

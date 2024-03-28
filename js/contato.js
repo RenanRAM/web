@@ -27,7 +27,7 @@ window.addEventListener('load', function(){
 });
 
 btnEnviar.addEventListener("click", function(evento) {
-	console.log('Disparando');
+	let esteBtn = this;
 	formulario.querySelectorAll('input').forEach(ele=>{//resetar os campos marcado
 		ele.style.borderColor='';
 	});
@@ -63,6 +63,8 @@ btnEnviar.addEventListener("click", function(evento) {
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4 && xhr.status === 200) {
 				console.log(xhr.responseText); //resposta do servidor
+				animarForm();
+				esteBtn.remove();
 			}
 		};
 		xhr.send(formdata);

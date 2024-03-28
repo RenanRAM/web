@@ -37,6 +37,7 @@
 	-ok validar a solicatação via php
 	-ok validar campos do formulario contato via JS
 	-ok criar banco de dados de solicitações com status
+	-ok banco de dados ciclico para armazenar as últimas requisições de clientes
 	-impedir o envio de muitas solicitações do mesmo cliente via tempo
 	-ok criar mascara para o input de número de telefone
 
